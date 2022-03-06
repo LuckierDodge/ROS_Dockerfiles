@@ -16,10 +16,14 @@
 #
 # Modified by Ryan D. Lewis
 
+# Script Configuration
 CONTAINER_USER=$USER
+DOCKER_NAMESPACE=$USER
 CONTAINER_NAME=turtle_bot_nav
 USER_ID=$UID
-IMAGE=niurover/turtle_bot_nav:latest
+IMAGE=$DOCKER_NAMESPACE/turtle_bot_nav:latest
+
+# Setup X-server config in WSL2
 if [ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ];
 then
 	xhost +local:$CONTAINER_USER
@@ -40,6 +44,7 @@ sudo docker run -it --rm \
 	--volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
 	$IMAGE bash\
 
+# Teardown X-server config in WSL2
 if [ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ];
 then
 	xhost -local:$CONTAINER_USER

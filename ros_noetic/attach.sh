@@ -18,7 +18,7 @@
 
 # Script Configuration
 USER_ID=$UID
-CONTAINER_NAME=ros2_foxy
+CONTAINER_NAME=ros_noetic
 
 sudo docker exec -it \
 	--user=$USER_ID \

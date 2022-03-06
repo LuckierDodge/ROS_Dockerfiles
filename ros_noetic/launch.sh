@@ -19,7 +19,7 @@
 # Script Configuration
 CONTAINER_USER=$USER
 DOCKER_NAMESPACE=$USER
-CONTAINER_NAME=webots_ros2_foxy
+CONTAINER_NAME=ros_noetic
 USER_ID=$UID
 IMAGE=$DOCKER_NAMESPACE/$CONTAINER_NAME:latest
 
@@ -50,4 +50,3 @@ then
 	xhost -local:$CONTAINER_USER
 	xhost -local:root
 fi
-
